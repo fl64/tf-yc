@@ -1,0 +1,9 @@
+source up
+
+export YC_TOKEN=
+export YC_CLOUD_ID=
+export YC_FOLDER_ID=
+export YC_ZONE=ru-central1-a
+export TF_VAR_dns_zone_id=
+export KUBECONFIG=${PWD}/terraform/k8s/.kubeconfig
+export TF_VAR_argocd_password=

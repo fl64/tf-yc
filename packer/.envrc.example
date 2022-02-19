@@ -1,0 +1,7 @@
+source up
+
+export YC_TOKEN=   # OAuth token
+export YC_CLOUD_ID=                   # cloud-fl64
+export YC_FOLDER_ID=                  # default
+export YC_ZONE=
+export PKR_VAR_subnet_id=
