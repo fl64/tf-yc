@@ -35,7 +35,7 @@ variable "ram" {
 #ubuntu 20.04 lts >> yc compute image list --folder-id
 variable "image" {
   description = "Image name"
-  default     = "ubuntu-1804-lts"
+  default     = "ubuntu-2004-lts"
 }
 
 variable "disk_size" {

@@ -4,10 +4,10 @@ variable "dns_zone_id" {
 
 module "vm" {
 
-  source        = "./modules/vm"
+  source        = "../../modules/vm-instance"
   instance_name = "vm"
   description   = "vm"
-  vm_count      = 2
+  vm_count      = 1
   labels = {
     env     = "test",
   }
@@ -23,7 +23,7 @@ module "vm" {
     ] }
   ]
   mountpoint  = "/mount/data"
-  dns_zone_id = var.dns_zone_id
+  #dns_zone_id = var.dns_zone_id
 }
 
 resource "yandex_vpc_security_group" "ssh-access" {
