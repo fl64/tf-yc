@@ -1,3 +1,10 @@
+locals {
+  script =<<SCRIPT
+  ansible-galaxy install --force -v -r requirements.yml --roles-path=./.roles_cache
+  ANSIBLE_FORCE_COLOR=1 ANSIBLE_ROLES_PATH=./.roles_cache ansible-playbook playbook.yml -e ansible_ssh_user=yc-bot -i ${module.vm.vm-info[0].nat_ip_addr[0]}, --diff
+  SCRIPT
+}
+
 variable "dns_zone_id" {
   default = "none"
 }
@@ -24,6 +31,16 @@ module "vm" {
   ]
   mountpoint  = "/mount/data"
   #dns_zone_id = var.dns_zone_id
+}
+
+
+resource "null_resource" "ansible_provision" {
+  triggers = {
+    always_run = timestamp()
+  }
+  provisioner "local-exec" {
+    command = local.script
+  }
 }
 
 resource "yandex_vpc_security_group" "ssh-access" {

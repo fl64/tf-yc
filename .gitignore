@@ -3,3 +3,6 @@
 *.tfstate*
 .kubeconfig
 *.plan
+*.dat
+.terraform.lock.hcl
+.roles_cache/

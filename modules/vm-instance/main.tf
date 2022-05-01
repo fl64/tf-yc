@@ -77,6 +77,6 @@ resource "yandex_compute_instance" "vm" {
       user        = var.user
       private_key = file(var.priv_key_path)
     }
-    inline = ["cat /etc/*release"]
+    inline = ["sudo apt update", "sudo apt install python3 -y", "echo Done!"]
   }
 }
